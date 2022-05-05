@@ -1,5 +1,5 @@
 ```shell
-
+mvn package
 ```
 
 ```shell
