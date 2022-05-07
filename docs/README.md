@@ -13,6 +13,8 @@ create user 'nessaj'@'%' identified by 'nessaj';
 grant all privileges on xxl_job.* to 'nessaj'@'%';
 flush privileges;
 
+mysql -h127.0.0.1 -uroot -p xxl_job < doc/db/tables_xxl_job.sql
+
 nessaj
 ```
 
