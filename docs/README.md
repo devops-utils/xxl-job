@@ -8,13 +8,22 @@ sudo docker build -f Dockerfile -t yiluxiangbei/xxl-job-admin:v1.0 .
 sudo docker push yiluxiangbei/xxl-job-admin:v1.0
 
 cd ..
-sudo docker run -ti -d --name=xxl-job-admin -p 8089:8080 --volume="$(pwd)":/xxl-job yiluxiangbei/xxl-job-admin:v1.0
+sudo docker run -ti -d --name=xxl-job-admin -p 8089:8080 -v "$(pwd)"/applogs:/data/applogs --volume="$(pwd)":/xxl-job yiluxiangbei/xxl-job-admin:v1.0
 
 sudo docker logs -f xxl-job-admin
 
 sudo docker stop xxl-job-admin
 sudo docker start xxl-job-admin
 sudo docker rm xxl-job-admin
+
+cd xxl-job-executor-samples/xxl-job-executor-sample-springboot
+cp target/xxl-job-executor-sample-springboot-2.3.1-SNAPSHOT.jar /data/home/genome/test/
+
+sudo docker exec -it 88162aa43c93 bash
+cd /home/genome/test/
+java -jar xxl-job-executor-sample-springboot-2.3.1-SNAPSHOT.jar
+
+http://172.17.0.2:9999/
 
 mysql -h127.0.0.1 -uroot -p
 
