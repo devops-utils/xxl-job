@@ -29,6 +29,7 @@ flush privileges;
 mysql -h127.0.0.1 -uroot -p xxl_job < doc/db/tables_xxl_job.sql
 
 http://49.232.6.131:8089/xxl-job-admin
+http://172.21.16.11:8089/xxl-job-admin
 admin
 123456
 
