@@ -12,6 +12,10 @@ sudo docker run -ti -d --name=xxl-job-admin -p 8089:8080 --volume="$(pwd)":/xxl-
 
 sudo docker logs -f xxl-job-admin
 
+sudo docker stop xxl-job-admin
+sudo docker start xxl-job-admin
+sudo docker rm xxl-job-admin
+
 mysql -h127.0.0.1 -uroot -p
 
 create database xxl_job default character set utf8mb4 collate utf8mb4_unicode_ci;
